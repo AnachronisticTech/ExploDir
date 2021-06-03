@@ -14,7 +14,7 @@ struct ExploDir: ParsableCommand {
         guard FileManager.default.directoryExists(expandedPath) else { return }
 
         let parentDirectory = expandedPath
-            .split(separator: "/")
+            .components(separatedBy: CharacterSet(charactersIn: #"/\"#))
             .dropLast()
             .joined(separator: "/")
 
